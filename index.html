@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ventora E-Commerce Management | Grow, Sell, Scale</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>Ventora E-Commerce Management | Premium Growth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables based on your logo colors */
+        /* --- Premium Color Palette --- */
         :root {
-            --navy: #001f3f;
-            --navy-light: #003366;
-            --gold: #d4af37;
-            --gold-light: #f3e5ab;
-            --white: #ffffff;
-            --gray: #f4f4f4;
-            --text-dark: #333333;
+            --navy-deep: #061429; /* Very dark elegant navy */
+            --navy: #0A2240;
+            --navy-light: #16365C;
+            --gold: #C5A059; /* Muted, elegant gold */
+            --gold-hover: #D4AF37;
+            --cream: #FAFAFA;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --white: #FFFFFF;
         }
 
         * {
@@ -25,58 +27,83 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-            background-color: var(--white);
+            color: var(--text-main);
+            line-height: 1.7;
+            background-color: var(--cream);
+            overflow-x: hidden;
         }
 
-        /* Typography */
-        h1, h2, h3 {
+        /* --- Typography --- */
+        h1, h2, h3, .serif {
+            font-family: 'Playfair Display', serif;
             color: var(--navy);
         }
 
-        .section-title {
+        .section-header {
             text-align: center;
-            font-size: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
             margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .section-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 3rem;
+            color: var(--text-muted);
             font-size: 1.1rem;
+            font-weight: 300;
+            margin-top: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Navigation */
+        /* --- Navigation --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 5%;
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem 8%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         nav img {
-            height: 60px; /* Adjust based on your logo */
+            height: 65px;
             object-fit: contain;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 3rem;
         }
 
         nav a {
             text-decoration: none;
             color: var(--navy);
-            font-weight: 600;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: color 0.3s;
         }
 
@@ -87,28 +114,33 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--navy), var(--navy-light));
             color: var(--white);
-            padding: 0.8rem 1.5rem;
+            padding: 0.9rem 2rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.4s ease;
             text-decoration: none;
             display: inline-block;
+            box-shadow: 0 4px 15px rgba(6, 20, 41, 0.2);
         }
 
         .btn-primary:hover {
+            background: var(--gold);
+            color: var(--navy-deep);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 31, 63, 0.3);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
         }
 
-        /* Hero Section */
+        /* --- Hero Section --- */
         .hero {
-            background: linear-gradient(135deg, rgba(0,31,63,0.95), rgba(0,51,102,0.9)), url('Website Logo.jpeg') center/cover;
-            /* Note: If you have a separate background image, replace the url above */
+            background: linear-gradient(rgba(6, 20, 41, 0.85), rgba(6, 20, 41, 0.95)), url('Website Logo.jpeg') center/cover fixed;
             color: var(--white);
             text-align: center;
-            padding: 8rem 2rem;
+            padding: 10rem 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -117,162 +149,237 @@
 
         .hero h1 {
             color: var(--white);
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
         }
 
         .hero p {
             font-size: 1.2rem;
             max-width: 800px;
-            margin-bottom: 2rem;
-            color: var(--gold-light);
+            margin-bottom: 3rem;
+            color: #E2E8F0;
             font-weight: 300;
         }
 
         .hero .btn-primary {
             background: var(--gold);
-            color: var(--navy);
-            font-weight: 800;
-            font-size: 1.1rem;
+            color: var(--navy-deep);
         }
 
         .hero .btn-primary:hover {
-            background: var(--gold-light);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            background: var(--white);
         }
 
-        /* Services Section */
+        /* --- Elegant Services Section --- */
         .services {
-            padding: 5rem 5%;
+            padding: 7rem 8%;
             background-color: var(--white);
         }
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
         .service-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: center;
-            border-bottom: 4px solid transparent;
-            transition: all 0.3s ease;
+            background: var(--cream);
+            padding: 3rem 2.5rem;
+            border-radius: 8px;
+            position: relative;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            overflow: hidden;
+        }
+
+        /* Elegant Top Gold Border on Hover */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            border-bottom: 4px solid var(--gold);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(6, 20, 41, 0.08);
+            background: var(--white);
         }
 
-        .service-card img {
-            height: 50px;
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: var(--navy-deep);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .icon-wrapper {
+            background: var(--gold);
+            transform: scale(1.05);
+        }
+
+        .icon-wrapper svg {
+            width: 28px;
+            height: 28px;
+            fill: none;
+            stroke: var(--gold);
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke 0.4s ease;
+        }
+
+        .service-card:hover .icon-wrapper svg {
+            stroke: var(--navy-deep);
         }
 
         .service-card h3 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
         }
 
-        /* Platforms Section */
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        /* --- Elegant Platforms Section --- */
         .platforms {
-            padding: 4rem 5%;
-            background-color: var(--gray);
+            padding: 6rem 8%;
+            background-color: var(--cream);
             text-align: center;
         }
 
-        .platform-logos {
+        .platform-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            margin-top: 3rem;
         }
 
-        .platform-logos img {
-            height: 50px;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s;
+        .platform-badge {
+            background: var(--white);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.05);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--navy);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .platform-logos img:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.1);
+        .platform-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.2);
+            border-color: var(--gold);
+            color: var(--gold);
         }
 
-        /* Investment Model Section */
+        .platform-badge span {
+            color: var(--gold);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* --- Investment Model Section --- */
         .investment {
-            padding: 5rem 5%;
-            background: var(--navy);
+            padding: 7rem 8%;
+            background: var(--navy-deep);
             color: var(--white);
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            gap: 3rem;
+            gap: 4rem;
         }
 
         .investment-text {
             flex: 1;
-            min-width: 300px;
+            min-width: 320px;
         }
 
         .investment-text h2 {
             color: var(--gold);
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
         }
 
         .investment-text p {
             font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #d1d5db;
+            margin-bottom: 2rem;
+            color: #B0C4DE;
+            font-weight: 300;
         }
 
         .investment-stats {
             flex: 1;
-            min-width: 300px;
+            min-width: 320px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
         }
 
         .stat-box {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(197, 160, 89, 0.2);
             padding: 2rem;
-            border-radius: 10px;
+            border-radius: 8px;
             text-align: center;
-            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: var(--gold);
         }
 
         .stat-box h3 {
             color: var(--gold);
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
         }
 
         .stat-box p {
             color: var(--white);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
         }
 
-        /* Contact Section */
+        /* --- Contact Section --- */
         .contact {
-            padding: 5rem 5%;
+            padding: 7rem 8%;
             background: var(--white);
             display: flex;
             flex-wrap: wrap;
-            gap: 4rem;
+            gap: 5rem;
         }
 
         .contact-info {
@@ -281,31 +388,39 @@
         }
 
         .contact-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
         }
 
         .info-item {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             font-size: 1.1rem;
+            color: var(--text-muted);
         }
 
         .info-item span {
-            margin-right: 1rem;
+            margin-right: 1.5rem;
             font-size: 1.5rem;
             color: var(--gold);
+            background: var(--cream);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
 
         .contact-form {
             flex: 1;
             min-width: 300px;
-            background: var(--gray);
-            padding: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background: var(--cream);
+            padding: 4rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--gold);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.05);
         }
 
         .form-group {
@@ -314,9 +429,10 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             font-weight: 600;
             color: var(--navy);
+            font-size: 0.9rem;
         }
 
         .form-group input,
@@ -324,40 +440,48 @@
         .form-group select {
             width: 100%;
             padding: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border: 1px solid #E0E0E0;
+            background: var(--white);
+            border-radius: 4px;
             font-family: 'Montserrat', sans-serif;
-            transition: border-color 0.3s;
+            font-size: 0.95rem;
+            transition: all 0.3s;
         }
 
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: var(--gold);
+            border-color: var(--navy);
+            box-shadow: 0 0 0 3px rgba(10, 34, 64, 0.1);
         }
 
-        /* Footer */
+        /* --- Footer --- */
         footer {
-            background: var(--navy);
+            background: var(--navy-deep);
             color: var(--white);
             text-align: center;
-            padding: 2rem;
-            border-top: 4px solid var(--gold);
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         footer p {
-            color: #a0aec0;
+            color: #8892B0;
             font-size: 0.9rem;
+            font-weight: 300;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul { display: none; } /* Hide links on mobile */
-            .hero h1 { font-size: 2.5rem; }
-            .section-title { font-size: 2rem; }
-            .investment { flex-direction: column; }
-            .contact { flex-direction: column; }
+        /* --- Responsive Design --- */
+        @media (max-width: 900px) {
+            nav ul { display: none; }
+            nav { padding: 1rem 5%; justify-content: center; }
+            .hero h1 { font-size: 2.8rem; }
+            .section-title { font-size: 2.2rem; }
+            .investment { flex-direction: column; text-align: center; }
+            .contact { flex-direction: column; padding: 4rem 5%; }
+            .contact-form { padding: 2rem; }
+            .info-item { justify-content: center; text-align: center; flex-direction: column; gap: 10px; }
+            .info-item span { margin-right: 0; }
         }
     </style>
 </head>
@@ -365,12 +489,11 @@
 
     <!-- Navigation -->
     <nav>
-        <!-- Make sure the image name matches exactly -->
         <img src="Website Logo.jpeg" alt="Ventora Logo">
         <ul>
             <li><a href="#services">Services</a></li>
-            <li><a href="#investment">Investment Model</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#investment">Investment</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
         <a href="#contact" class="btn-primary">Get Started</a>
     </nav>
@@ -378,55 +501,84 @@
     <!-- Hero Section -->
     <header class="hero">
         <h1>Grow. Sell. Scale Together.</h1>
-        <p>Ventora E-Commerce Management is your premier partner for dominating online marketplaces. From Amazon and eBay to Shopify and TikTok Shop, we source, list, market, and manage your accounts to maximize your revenue.</p>
+        <p>Ventora E-Commerce Management is your premier partner for dominating online marketplaces. From Amazon and eBay to Shopify and TikTok Shop, we manage your accounts to maximize your revenue.</p>
         <a href="#contact" class="btn-primary">Schedule a Consultation</a>
     </header>
 
-    <!-- Services Section -->
+    <!-- Elegant Services Section -->
     <section id="services" class="services">
-        <h2 class="section-title">Our Core Services</h2>
-        <p class="section-subtitle">Comprehensive E-Commerce Management tailored to your needs.</p>
+        <div class="section-header">
+            <h2 class="section-title">Our Core Services</h2>
+            <p class="section-subtitle">Comprehensive E-Commerce Management tailored for your success.</p>
+        </div>
         
         <div class="grid-container">
+            <!-- Service 1 -->
             <div class="service-card">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                </div>
                 <h3>Product Sourcing</h3>
-                <p>We find high-demand, profitable products for you. Let us handle the research and supplier negotiations while you focus on growing.</p>
+                <p>We find high-demand, profitable products for you. Let us handle the research and supplier negotiations while you focus on growing your business.</p>
             </div>
+            <!-- Service 2 -->
             <div class="service-card">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                </div>
                 <h3>Listing Management</h3>
-                <p>Optimized titles, descriptions, and images that rank higher in search results. We manage your inventory and listings across all platforms.</p>
+                <p>Optimized titles, descriptions, and images that rank higher in search results. We meticulously manage your inventory across all platforms.</p>
             </div>
+            <!-- Service 3 -->
             <div class="service-card">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                </div>
                 <h3>Marketing & Promotion</h3>
-                <p>Drive traffic and convert sales with our targeted PPC campaigns, social media marketing, and promotional strategies.</p>
+                <p>Drive traffic and convert sales with our targeted PPC campaigns, social media marketing, and strategic promotional strategies.</p>
             </div>
+            <!-- Service 4 -->
             <div class="service-card">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                </div>
                 <h3>Account Growth</h3>
                 <p>We treat your accounts like our own. Through data analytics and proactive management, we ensure your store scales month over month.</p>
             </div>
+            <!-- Service 5 -->
             <div class="service-card">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
                 <h3>Consulting & Strategy</h3>
-                <p>Expert advice on navigating the complexities of global e-commerce. We help you avoid pitfalls and seize opportunities.</p>
+                <p>Expert advice on navigating the complexities of global e-commerce. We help you avoid pitfalls and seize market opportunities.</p>
             </div>
+            <!-- Service 6 -->
             <div class="service-card">
+                <div class="icon-wrapper">
+                    <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                </div>
                 <h3>Investment & Profit Share</h3>
                 <p>Our unique model: We can invest our own capital to fund your inventory. In return, we take a commission based on sales and profits.</p>
             </div>
         </div>
     </section>
 
-    <!-- Platforms Section -->
+    <!-- Elegant Platforms Section -->
     <section class="platforms">
-        <h2 class="section-title">Platforms We Master</h2>
-        <p class="section-subtitle">Manage all your channels from one expert partner.</p>
-        <div class="platform-logos">
-            <!-- Note: Replace these text elements with actual platform logo images if you wish -->
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg" alt="eBay">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Amazon_logo.svg" alt="Amazon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Walmart_logo.svg" alt="Walmart">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Etsy_logo.svg" alt="Etsy">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Shopify_logo_2018.svg" alt="Shopify">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/TikTok_logo.svg" alt="TikTok Shop">
+        <div class="section-header">
+            <h2 class="section-title">Platforms We Master</h2>
+            <p class="section-subtitle">Manage all your sales channels from one expert partner.</p>
+        </div>
+        
+        <div class="platform-grid">
+            <div class="platform-badge"><span>e</span> eBay</div>
+            <div class="platform-badge"><span>a</span> Amazon</div>
+            <div class="platform-badge"><span>W</span> Walmart</div>
+            <div class="platform-badge"><span>E</span> Etsy</div>
+            <div class="platform-badge"><span>S</span> Shopify</div>
+            <div class="platform-badge"><span>t</span> TikTok Shop</div>
+            <div class="platform-badge"><span>f</span> Facebook Market</div>
         </div>
     </section>
 
@@ -436,19 +588,19 @@
             <h2>We Invest In You.</h2>
             <p>Unlike traditional agencies, Ventora puts our money where our mouth is. We offer a unique partnership model where we can fund your inventory costs and handle all the operational heavy lifting.</p>
             <p>We only succeed when you succeed. Our compensation is tied directly to the growth and profitability of your e-commerce business.</p>
-            <a href="#contact" class="btn-primary" style="background:var(--gold); color:var(--navy); margin-top: 1rem;">Discuss Partnership</a>
+            <a href="#contact" class="btn-primary" style="background:var(--gold); color:var(--navy-deep); margin-top: 1rem;">Discuss Partnership</a>
         </div>
         <div class="investment-stats">
             <div class="stat-box">
                 <h3>0%</h3>
-                <p>Upfront Cost for Investment Clients</p>
+                <p>Upfront Cost for Clients</p>
             </div>
             <div class="stat-box">
                 <h3>100%</h3>
-                <p>Dedication to Your Growth</p>
+                <p>Dedication to Growth</p>
             </div>
             <div class="stat-box">
-                <h3>6+</h3>
+                <h3>7+</h3>
                 <p>Major Platforms Managed</p>
             </div>
             <div class="stat-box">
@@ -462,7 +614,7 @@
     <section id="contact" class="contact">
         <div class="contact-info">
             <h2>Let's Build Your Empire.</h2>
-            <p style="margin-bottom: 2rem; color: #666;">Ready to scale your e-commerce business? Reach out to us today. We are based in New London, Connecticut, but we manage businesses globally.</p>
+            <p style="margin-bottom: 2.5rem; color: #666; font-size: 1.1rem; font-weight: 300;">Ready to scale your e-commerce business? Reach out to us today. We are based in New London, Connecticut, managing businesses globally.</p>
             
             <div class="info-item">
                 <span>📍</span>
@@ -470,7 +622,7 @@
             </div>
             <div class="info-item">
                 <span>📞</span>
-                <p><a href="tel:8604607078" style="color: var(--navy); text-decoration: none; font-weight: bold;">860-460-7078</a></p>
+                <p><a href="tel:8604607078" style="color: var(--navy); text-decoration: none; font-weight: 600;">860-460-7078</a></p>
             </div>
             <div class="info-item">
                 <span>📧</span>
@@ -479,8 +631,7 @@
         </div>
 
         <div class="contact-form">
-            <h3 style="margin-bottom: 1.5rem; color: var(--navy);">Send Us a Message</h3>
-            <!-- Note: To make this form actually send emails, you need to connect it to a backend service like Formspree or Netlify Forms -->
+            <h3 class="serif" style="margin-bottom: 2rem; font-size: 2rem;">Send Us a Message</h3>
             <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <div class="form-group">
                     <label for="name">Full Name</label>
@@ -507,7 +658,7 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="4" placeholder="Tell us about your current e-commerce setup..." required></textarea>
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; font-size: 1.1rem;">Send Message</button>
+                <button type="submit" class="btn-primary" style="width: 100%; font-size: 1rem; padding: 1rem;">Send Message</button>
             </form>
         </div>
     </section>
@@ -515,7 +666,7 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2023 Ventora E-Commerce Management. All Rights Reserved.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Grow • Sell • Scale Together</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; letter-spacing: 2px; color: var(--gold);">GROW • SELL • SCALE TOGETHER</p>
     </footer>
 
 </body>
