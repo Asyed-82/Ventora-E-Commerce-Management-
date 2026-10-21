@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventora E-Commerce Management | Grow, Sell, Scale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables based on your logo colors */
+        :root {
+            --navy: #001f3f;
+            --navy-light: #003366;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --white: #ffffff;
+            --gray: #f4f4f4;
+            --text-dark: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            color: var(--navy);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav img {
+            height: 60px; /* Adjust based on your logo */
+            object-fit: contain;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 31, 63, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0,31,63,0.95), rgba(0,51,102,0.9)), url('Website Logo.jpeg') center/cover;
+            /* Note: If you have a separate background image, replace the url above */
+            color: var(--white);
+            text-align: center;
+            padding: 8rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            color: var(--gold-light);
+            font-weight: 300;
+        }
+
+        .hero .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .hero .btn-primary:hover {
+            background: var(--gold-light);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 5%;
+            background-color: var(--white);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            border-bottom: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--gold);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-card img {
+            height: 50px;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Platforms Section */
+        .platforms {
+            padding: 4rem 5%;
+            background-color: var(--gray);
+            text-align: center;
+        }
+
+        .platform-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .platform-logos img {
+            height: 50px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+
+        .platform-logos img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* Investment Model Section */
+        .investment {
+            padding: 5rem 5%;
+            background: var(--navy);
+            color: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+
+        .investment-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .investment-text h2 {
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .investment-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #d1d5db;
+        }
+
+        .investment-stats {
+            flex: 1;
+            min-width: 300px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-box h3 {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box p {
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            background: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-item span {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: var(--gray);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            border-top: 4px solid var(--gold);
+        }
+
+        footer p {
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul { display: none; } /* Hide links on mobile */
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .investment { flex-direction: column; }
+            .contact { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <!-- Make sure the image name matches exactly -->
+        <img src="Website Logo.jpeg" alt="Ventora Logo">
+        <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#investment">Investment Model</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+        <a href="#contact" class="btn-primary">Get Started</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Grow. Sell. Scale Together.</h1>
+        <p>Ventora E-Commerce Management is your premier partner for dominating online marketplaces. From Amazon and eBay to Shopify and TikTok Shop, we source, list, market, and manage your accounts to maximize your revenue.</p>
+        <a href="#contact" class="btn-primary">Schedule a Consultation</a>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2 class="section-title">Our Core Services</h2>
+        <p class="section-subtitle">Comprehensive E-Commerce Management tailored to your needs.</p>
+        
+        <div class="grid-container">
+            <div class="service-card">
+                <h3>Product Sourcing</h3>
+                <p>We find high-demand, profitable products for you. Let us handle the research and supplier negotiations while you focus on growing.</p>
+            </div>
+            <div class="service-card">
+                <h3>Listing Management</h3>
+                <p>Optimized titles, descriptions, and images that rank higher in search results. We manage your inventory and listings across all platforms.</p>
+            </div>
+            <div class="service-card">
+                <h3>Marketing & Promotion</h3>
+                <p>Drive traffic and convert sales with our targeted PPC campaigns, social media marketing, and promotional strategies.</p>
+            </div>
+            <div class="service-card">
+                <h3>Account Growth</h3>
+                <p>We treat your accounts like our own. Through data analytics and proactive management, we ensure your store scales month over month.</p>
+            </div>
+            <div class="service-card">
+                <h3>Consulting & Strategy</h3>
+                <p>Expert advice on navigating the complexities of global e-commerce. We help you avoid pitfalls and seize opportunities.</p>
+            </div>
+            <div class="service-card">
+                <h3>Investment & Profit Share</h3>
+                <p>Our unique model: We can invest our own capital to fund your inventory. In return, we take a commission based on sales and profits.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platforms Section -->
+    <section class="platforms">
+        <h2 class="section-title">Platforms We Master</h2>
+        <p class="section-subtitle">Manage all your channels from one expert partner.</p>
+        <div class="platform-logos">
+            <!-- Note: Replace these text elements with actual platform logo images if you wish -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg" alt="eBay">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Amazon_logo.svg" alt="Amazon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Walmart_logo.svg" alt="Walmart">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Etsy_logo.svg" alt="Etsy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Shopify_logo_2018.svg" alt="Shopify">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/TikTok_logo.svg" alt="TikTok Shop">
+        </div>
+    </section>
+
+    <!-- Investment Model Section -->
+    <section id="investment" class="investment">
+        <div class="investment-text">
+            <h2>We Invest In You.</h2>
+            <p>Unlike traditional agencies, Ventora puts our money where our mouth is. We offer a unique partnership model where we can fund your inventory costs and handle all the operational heavy lifting.</p>
+            <p>We only succeed when you succeed. Our compensation is tied directly to the growth and profitability of your e-commerce business.</p>
+            <a href="#contact" class="btn-primary" style="background:var(--gold); color:var(--navy); margin-top: 1rem;">Discuss Partnership</a>
+        </div>
+        <div class="investment-stats">
+            <div class="stat-box">
+                <h3>0%</h3>
+                <p>Upfront Cost for Investment Clients</p>
+            </div>
+            <div class="stat-box">
+                <h3>100%</h3>
+                <p>Dedication to Your Growth</p>
+            </div>
+            <div class="stat-box">
+                <h3>6+</h3>
+                <p>Major Platforms Managed</p>
+            </div>
+            <div class="stat-box">
+                <h3>24/7</h3>
+                <p>Account Monitoring</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-info">
+            <h2>Let's Build Your Empire.</h2>
+            <p style="margin-bottom: 2rem; color: #666;">Ready to scale your e-commerce business? Reach out to us today. We are based in New London, Connecticut, but we manage businesses globally.</p>
+            
+            <div class="info-item">
+                <span>📍</span>
+                <p>New London, Connecticut, USA</p>
+            </div>
+            <div class="info-item">
+                <span>📞</span>
+                <p><a href="tel:8604607078" style="color: var(--navy); text-decoration: none; font-weight: bold;">860-460-7078</a></p>
+            </div>
+            <div class="info-item">
+                <span>📧</span>
+                <p>info@ventoramanagement.com</p>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h3 style="margin-bottom: 1.5rem; color: var(--navy);">Send Us a Message</h3>
+            <!-- Note: To make this form actually send emails, you need to connect it to a backend service like Formspree or Netlify Forms -->
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="860-000-0000">
+                </div>
+                <div class="form-group">
+                    <label for="service">Interested In:</label>
+                    <select id="service" name="service">
+                        <option value="Full Management">Full E-Commerce Management</option>
+                        <option value="Investment/Commission">Investment & Profit Share Model</option>
+                        <option value="Consulting">Consulting & Strategy</option>
+                        <option value="Sourcing">Product Sourcing</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your current e-commerce setup..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; font-size: 1.1rem;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Ventora E-Commerce Management. All Rights Reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Grow • Sell • Scale Together</p>
+    </footer>
+
+</body>
+</html>
