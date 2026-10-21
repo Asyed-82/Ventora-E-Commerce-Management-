@@ -414,6 +414,81 @@
             color: var(--navy);
         }
 
+        /* --- NEW About Us Section --- */
+        .about {
+            padding: 6rem 5%;
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-content {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-highlight {
+            font-size: 1.3rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--navy);
+            margin: 3rem 0;
+            padding: 2rem;
+            border-left: 4px solid var(--gold);
+            border-right: 4px solid var(--gold);
+            background: var(--bg-light);
+            border-radius: 10px;
+        }
+
+        .founders-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .founder-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 20px;
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .founder-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .founder-card p {
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0;
+        }
+
         /* --- Modern Contact Section --- */
         .contact {
             padding: 6rem 5%;
@@ -558,7 +633,7 @@
             transform: translateY(0);
         }
 
-        /* --- Mobile Responsiveness (CRITICAL FIXES) --- */
+        /* --- Mobile Responsiveness --- */
         @media (max-width: 1024px) {
             .bento-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -585,10 +660,10 @@
                 gap: 1rem;
             }
             .nav-links {
-                display: none; /* Hide mid-links on mobile to save space */
+                display: none; /* Hide mid-links on mobile */
             }
             nav img {
-                height: 65px; /* Slightly larger logo for mobile */
+                height: 65px; 
             }
             .btn-primary {
                 width: 100%;
@@ -626,7 +701,7 @@
             }
 
             /* Section Padding Reduced */
-            .services, .platforms, .investment, .contact {
+            .services, .platforms, .investment, .contact, .about {
                 padding: 4rem 1rem;
             }
             .section-title { font-size: 2.2rem; }
@@ -645,6 +720,10 @@
             .contact-item {
                 font-size: 0.95rem;
             }
+            .about-highlight {
+                font-size: 1.1rem;
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -657,6 +736,7 @@
         </div>
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
+            <li><a href="#about">About Us</a></li>
             <li><a href="#investment">Investment</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -758,6 +838,43 @@
                 <div class="platform-item"><span>S</span> Shopify</div>
                 <div class="platform-item"><span>t</span> TikTok Shop</div>
                 <div class="platform-item"><span>f</span> Facebook Market</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW About Us Section -->
+    <section id="about" class="about">
+        <div class="section-header reveal">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-subtitle">A childhood promise, kept alive by the power of the internet.</p>
+        </div>
+        
+        <div class="about-content reveal">
+            <p>Ventora E-Commerce Management was not born in a boardroom; it was born from a childhood promise made between three best friends in the village of Chabber Syedan.</p>
+            
+            <p>As young boys, <strong>Dr. Asad Ali Syed</strong>, <strong>Syed Mansoor Haider</strong>, and <strong>Niaz Haider Shah</strong> shared a relentless entrepreneurial spirit. They would pool their pocket money together to buy products, which they would then sell at their school and around their village. They made a pact: when they grew up, they would become business partners and build something great together.</p>
+            
+            <div class="about-highlight">
+                "Life took them in different directions, but the internet brought them back together to fulfill a lifelong promise."
+            </div>
+
+            <p>After finishing high school, Dr. Asad Ali Syed moved to the United States and established his life here. Despite the distance and the years, he never forgot the promise he made to his childhood friends. While the traditional paths of business seemed impossible from across the world, the rise of the digital age made their dream achievable.</p>
+            
+            <p>Reuniting over the internet, the three friends realized that their combined expertise was the perfect foundation for an e-commerce empire. They founded <strong>Ventora E-Commerce Management</strong>. Today, Dr. Syed expertly manages the business operations here in the USA, while Mansoor and Niaz lead the overseas team. Through the power of online business, their childhood wish finally became reality.</p>
+        </div>
+
+        <div class="founders-grid reveal">
+            <div class="founder-card">
+                <h3>Dr. Asad Ali Syed</h3>
+                <p>USA Operations</p>
+            </div>
+            <div class="founder-card">
+                <h3>Syed Mansoor Haider</h3>
+                <p>Overseas Team Lead</p>
+            </div>
+            <div class="founder-card">
+                <h3>Niaz Haider Shah</h3>
+                <p>Overseas Team Lead</p>
             </div>
         </div>
     </section>
