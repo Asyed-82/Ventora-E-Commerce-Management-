@@ -16,7 +16,7 @@
             --text-main: #2D3748;
             --text-muted: #718096;
             --white: #FFFFFF;
-            --glass: rgba(255, 255, 255, 0.85);
+            --glass: rgba(255, 255, 255, 0.95);
         }
 
         * {
@@ -48,7 +48,7 @@
         }
 
         .section-title {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
         }
 
@@ -58,9 +58,10 @@
             font-weight: 400;
             max-width: 600px;
             margin: 0 auto;
+            padding: 0 1rem;
         }
 
-        /* --- Sticky Glass Navigation --- */
+        /* --- Navigation (Fully Mobile Responsive) --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -73,18 +74,26 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
         }
 
         nav img {
-            height: 60px;
+            height: 55px;
+            max-width: 100%;
             object-fit: contain;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 3rem;
+            gap: 2.5rem;
+            margin: 0 auto;
         }
 
         .nav-links a {
@@ -118,7 +127,7 @@
             color: var(--white);
             padding: 0.8rem 2rem;
             border: none;
-            border-radius: 50px; /* Pill shape */
+            border-radius: 50px;
             font-weight: 600;
             font-size: 0.9rem;
             cursor: pointer;
@@ -126,6 +135,7 @@
             text-decoration: none;
             display: inline-block;
             box-shadow: 0 4px 15px rgba(10, 34, 64, 0.2);
+            white-space: nowrap;
         }
 
         .btn-primary:hover {
@@ -139,15 +149,14 @@
         .hero {
             background: var(--bg-dark);
             color: var(--white);
-            min-height: 90vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             position: relative;
-            padding: 0 5%;
+            padding: 4rem 5%;
             overflow: hidden;
         }
 
-        /* Abstract background shapes */
         .hero::before {
             content: '';
             position: absolute;
@@ -180,7 +189,7 @@
 
         .hero h1 {
             color: var(--white);
-            font-size: 4.5rem;
+            font-size: 4rem;
             margin-bottom: 1.5rem;
         }
 
@@ -190,15 +199,15 @@
         }
 
         .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 3rem;
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
             color: #A0AEC0;
-            max-width: 600px;
+            max-width: 700px;
         }
 
         /* --- The Bento Box Services --- */
         .services {
-            padding: 8rem 5%;
+            padding: 6rem 5%;
             background: var(--white);
         }
 
@@ -221,7 +230,6 @@
             justify-content: center;
         }
 
-        /* Hover animation */
         .bento-card:hover {
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
@@ -229,7 +237,6 @@
             background: var(--white);
         }
 
-        /* Make some cards span 2 columns for the "Bento" look */
         .bento-card:nth-child(1), .bento-card:nth-child(6) {
             grid-column: span 2;
             background: linear-gradient(135deg, var(--navy), var(--bg-dark));
@@ -245,7 +252,7 @@
         }
 
         .bento-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 700;
@@ -258,9 +265,9 @@
         }
 
         .bento-icon {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 1.5rem;
+            width: 45px;
+            height: 45px;
+            margin-bottom: 1.2rem;
             color: var(--gold);
         }
 
@@ -311,7 +318,7 @@
         }
 
         .platform-item {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: rgba(255,255,255,0.4);
             display: flex;
@@ -325,7 +332,7 @@
         }
 
         .platform-item span {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--gold);
         }
 
@@ -336,11 +343,11 @@
 
         /* --- Asymmetrical Investment Section --- */
         .investment {
-            padding: 8rem 5%;
+            padding: 6rem 5%;
             background: var(--bg-light);
             display: flex;
             align-items: center;
-            gap: 5rem;
+            gap: 4rem;
         }
 
         .investment-content {
@@ -348,14 +355,14 @@
         }
 
         .investment-content h2 {
-            font-size: 3.5rem;
-            margin-bottom: 2rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
         }
 
         .investment-content p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--text-muted);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .stats-grid {
@@ -366,7 +373,6 @@
             position: relative;
         }
 
-        /* Offset the stats grid to make it unique */
         .stats-grid::before {
             content: '';
             position: absolute;
@@ -382,7 +388,7 @@
 
         .stat-card {
             background: var(--white);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 20px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -391,17 +397,17 @@
         }
 
         .stat-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
 
         .stat-card h3 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: var(--gold);
             margin-bottom: 0.5rem;
         }
 
         .stat-card p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -410,10 +416,10 @@
 
         /* --- Modern Contact Section --- */
         .contact {
-            padding: 8rem 5%;
+            padding: 6rem 5%;
             background: var(--white);
             display: flex;
-            gap: 5rem;
+            gap: 4rem;
         }
 
         .contact-info {
@@ -421,13 +427,13 @@
         }
 
         .contact-info h2 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 1.5rem;
         }
 
         .contact-info p {
             color: var(--text-muted);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .contact-details {
@@ -440,7 +446,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 500;
             color: var(--navy);
         }
@@ -451,41 +457,41 @@
             stroke: var(--gold);
             fill: none;
             stroke-width: 2;
+            flex-shrink: 0;
         }
 
         .contact-form-wrapper {
             flex: 1;
             background: var(--bg-light);
-            padding: 4rem;
+            padding: 3rem;
             border-radius: 30px;
             position: relative;
         }
 
-        /* Floating element on form */
         .contact-form-wrapper::before {
             content: 'Let\'s Talk';
             position: absolute;
-            top: -20px;
-            right: 40px;
+            top: -15px;
+            right: 30px;
             background: var(--gold);
             color: var(--navy);
-            padding: 0.5rem 1.5rem;
+            padding: 0.4rem 1.2rem;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transform: rotate(3deg);
             box-shadow: 0 5px 15px var(--gold-glow);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--navy);
         }
 
@@ -493,12 +499,12 @@
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 1rem 1.2rem;
+            padding: 0.9rem 1rem;
             border: 2px solid transparent;
             background: var(--white);
             border-radius: 12px;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: all 0.3s;
             box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
@@ -513,8 +519,8 @@
 
         .contact-form-wrapper .btn-primary {
             width: 100%;
-            padding: 1.2rem;
-            font-size: 1.1rem;
+            padding: 1rem;
+            font-size: 1rem;
             border-radius: 12px;
             margin-top: 1rem;
         }
@@ -524,12 +530,12 @@
             background: var(--bg-dark);
             color: var(--white);
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 2.5rem 2rem;
         }
 
         footer p {
             color: #718096;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         footer .gold-text {
@@ -540,10 +546,10 @@
             font-size: 0.8rem;
         }
 
-        /* --- Animation Classes (Triggered by JS) --- */
+        /* --- Animation Classes --- */
         .reveal {
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
         }
 
@@ -552,7 +558,7 @@
             transform: translateY(0);
         }
 
-        /* --- Mobile Responsiveness --- */
+        /* --- Mobile Responsiveness (CRITICAL FIXES) --- */
         @media (max-width: 1024px) {
             .bento-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -562,57 +568,93 @@
             }
             .investment, .contact {
                 flex-direction: column;
-                gap: 4rem;
+                gap: 3rem;
             }
             .stats-grid::before {
-                display: none; /* Hide offset border on mobile */
+                display: none; 
             }
-            .hero h1 { font-size: 3.5rem; }
+            .hero h1 { font-size: 3.2rem; }
+            .nav-links { gap: 1.5rem; }
         }
 
         @media (max-width: 768px) {
+            /* Navigation Stacked */
             nav {
-                justify-content: center;
-                padding: 1rem;
+                flex-direction: column;
+                padding: 1rem 5%;
+                gap: 1rem;
             }
             .nav-links {
-                display: none; /* Hide nav links on mobile for clean look */
+                display: none; /* Hide mid-links on mobile to save space */
             }
-            .hero {
-                min-height: 80vh;
-                padding-top: 4rem;
+            nav img {
+                height: 65px; /* Slightly larger logo for mobile */
+            }
+            .btn-primary {
+                width: 100%;
                 text-align: center;
             }
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { margin: 0 auto 2rem auto; }
+
+            /* Hero Adjustments */
+            .hero {
+                min-height: auto;
+                padding: 5rem 1rem 4rem 1rem;
+                text-align: center;
+            }
+            .hero h1 { 
+                font-size: 2.6rem; 
+                line-height: 1.2;
+            }
+            .hero p { 
+                font-size: 1rem; 
+                margin: 0 auto 2rem auto; 
+            }
+            .hero .btn-primary {
+                width: auto;
+                padding: 1rem 2rem;
+            }
             
-            .section-title { font-size: 2.2rem; }
-            
+            /* Grids Stacked */
             .bento-grid {
                 grid-template-columns: 1fr;
             }
             .bento-card:nth-child(1), .bento-card:nth-child(6) {
                 grid-column: span 1;
             }
+            .bento-card {
+                padding: 2rem;
+            }
+
+            /* Section Padding Reduced */
+            .services, .platforms, .investment, .contact {
+                padding: 4rem 1rem;
+            }
+            .section-title { font-size: 2.2rem; }
             
+            /* Form Adjustments */
             .contact-form-wrapper {
-                padding: 2.5rem 1.5rem;
+                padding: 2rem 1.5rem;
             }
             .stats-grid {
                 grid-template-columns: 1fr;
                 width: 100%;
             }
             .investment-content h2, .contact-info h2 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+            }
+            .contact-item {
+                font-size: 0.95rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sticky Navigation -->
+    <!-- Navigation -->
     <nav>
-        <img src="Website Logo.jpeg" alt="Ventora Logo">
+        <div class="logo-container">
+            <img src="Website Logo.jpeg" alt="Ventora Logo">
+        </div>
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
             <li><a href="#investment">Investment</a></li>
@@ -621,16 +663,16 @@
         <a href="#contact" class="btn-primary">Get Started</a>
     </nav>
 
-    <!-- Immersive Hero -->
+    <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content reveal">
             <h1>Dominate E-Commerce. <br> <span>We Invest In You.</span></h1>
-            <p>Ventora E-Commerce Management is your premier partner for scaling online marketplaces. From Amazon to TikTok Shop, we source, list, market, and even fund your inventory to guarantee mutual growth.</p>
-            <a href="#contact" class="btn-primary" style="background: var(--gold); color: var(--bg-dark); padding: 1rem 2.5rem; font-size: 1rem;">Schedule a Consultation</a>
+            <p>Ventora E-Commerce Management is your premier partner for scaling online marketplaces. From eBay to TikTok Shop, we source, list, market, and even fund your inventory to guarantee mutual growth.</p>
+            <a href="#contact" class="btn-primary" style="background: var(--gold); color: var(--bg-dark);">Schedule a Consultation</a>
         </div>
     </header>
 
-    <!-- Bento Box Services -->
+    <!-- Services Section -->
     <section id="services" class="services">
         <div class="section-header reveal">
             <h2 class="section-title">Our Expertise</h2>
@@ -694,7 +736,7 @@
         </div>
     </section>
 
-    <!-- Infinite Marquee Platforms -->
+    <!-- Platforms Section -->
     <section class="platforms">
         <h2 class="section-title reveal">Platforms We Master</h2>
         <div class="marquee-container">
@@ -720,7 +762,7 @@
         </div>
     </section>
 
-    <!-- Asymmetrical Investment Section -->
+    <!-- Investment Section -->
     <section id="investment" class="investment">
         <div class="investment-content reveal">
             <h2>We Don't Just Manage. <br> <span style="color: var(--gold);">We Invest.</span></h2>
@@ -749,7 +791,7 @@
         </div>
     </section>
 
-    <!-- Modern Contact Section -->
+    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="contact-info reveal">
             <h2>Let's Build Your Empire.</h2>
@@ -827,7 +869,7 @@
             };
 
             window.addEventListener('scroll', revealOnScroll);
-            revealOnScroll(); // Trigger once on load
+            revealOnScroll(); 
         });
     </script>
 </body>
