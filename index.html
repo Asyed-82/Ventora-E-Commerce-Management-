@@ -4,32 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ventora E-Commerce Management | Premium Growth</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <style>
-        /* --- Premium Color Palette --- */
+        /* --- Ultra Premium Palette --- */
         :root {
-            --navy-deep: #061429; /* Very dark elegant navy */
+            --bg-dark: #050C1A;
+            --bg-light: #F8F9FA;
             --navy: #0A2240;
-            --navy-light: #16365C;
-            --gold: #C5A059; /* Muted, elegant gold */
-            --gold-hover: #D4AF37;
-            --cream: #FAFAFA;
-            --text-main: #333333;
-            --text-muted: #666666;
+            --gold: #D4AF37;
+            --gold-glow: rgba(212, 175, 55, 0.3);
+            --text-main: #2D3748;
+            --text-muted: #718096;
             --white: #FFFFFF;
+            --glass: rgba(255, 255, 255, 0.85);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             color: var(--text-main);
+            background-color: var(--bg-light);
             line-height: 1.7;
-            background-color: var(--cream);
             overflow-x: hidden;
         }
 
@@ -37,390 +38,443 @@
         h1, h2, h3, .serif {
             font-family: 'Playfair Display', serif;
             color: var(--navy);
+            line-height: 1.2;
         }
 
         .section-header {
             text-align: center;
             margin-bottom: 4rem;
+            position: relative;
         }
 
         .section-title {
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 2px;
-            background: var(--gold);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .section-subtitle {
             color: var(--text-muted);
             font-size: 1.1rem;
-            font-weight: 300;
-            margin-top: 1.5rem;
+            font-weight: 400;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
         }
 
-        /* --- Navigation --- */
+        /* --- Sticky Glass Navigation --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 8%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 1rem 5%;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
 
         nav img {
-            height: 65px;
+            height: 60px;
             object-fit: contain;
         }
 
-        nav ul {
+        .nav-links {
             display: flex;
             list-style: none;
             gap: 3rem;
         }
 
-        nav a {
+        .nav-links a {
             text-decoration: none;
             color: var(--navy);
-            font-weight: 500;
-            font-size: 0.95rem;
+            font-weight: 600;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.3s;
+            position: relative;
         }
 
-        nav a:hover {
-            color: var(--gold);
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            background: var(--navy);
             color: var(--white);
-            padding: 0.9rem 2rem;
+            padding: 0.8rem 2rem;
             border: none;
-            border-radius: 4px;
+            border-radius: 50px; /* Pill shape */
             font-weight: 600;
             font-size: 0.9rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(6, 20, 41, 0.2);
+            box-shadow: 0 4px 15px rgba(10, 34, 64, 0.2);
         }
 
         .btn-primary:hover {
             background: var(--gold);
-            color: var(--navy-deep);
+            color: var(--navy);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
+            box-shadow: 0 6px 20px var(--gold-glow);
         }
 
-        /* --- Hero Section --- */
+        /* --- Immersive Hero Section --- */
         .hero {
-            background: linear-gradient(rgba(6, 20, 41, 0.85), rgba(6, 20, 41, 0.95)), url('Website Logo.jpeg') center/cover fixed;
+            background: var(--bg-dark);
             color: var(--white);
-            text-align: center;
-            padding: 10rem 2rem;
+            min-height: 90vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            position: relative;
+            padding: 0 5%;
+            overflow: hidden;
+        }
+
+        /* Abstract background shapes */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(5,12,26,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(10,34,64,0.8) 0%, rgba(5,12,26,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 1;
+            position: relative;
         }
 
         .hero h1 {
             color: var(--white);
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+            font-style: italic;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
+            font-size: 1.25rem;
             margin-bottom: 3rem;
-            color: #E2E8F0;
-            font-weight: 300;
+            color: #A0AEC0;
+            max-width: 600px;
         }
 
-        .hero .btn-primary {
-            background: var(--gold);
-            color: var(--navy-deep);
-        }
-
-        .hero .btn-primary:hover {
-            background: var(--white);
-        }
-
-        /* --- Elegant Services Section --- */
+        /* --- The Bento Box Services --- */
         .services {
-            padding: 7rem 8%;
-            background-color: var(--white);
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background: var(--cream);
-            padding: 3rem 2.5rem;
-            border-radius: 8px;
-            position: relative;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.03);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            overflow: hidden;
-        }
-
-        /* Elegant Top Gold Border on Hover */
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--gold);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(6, 20, 41, 0.08);
+            padding: 8rem 5%;
             background: var(--white);
         }
 
-        .service-card:hover::before {
-            transform: scaleX(1);
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
         }
 
-        .icon-wrapper {
-            width: 60px;
-            height: 60px;
-            background: var(--navy-deep);
-            border-radius: 50%;
+        .bento-card {
+            background: var(--bg-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+        }
+
+        /* Hover animation */
+        .bento-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: rgba(212, 175, 55, 0.3);
+            background: var(--white);
+        }
+
+        /* Make some cards span 2 columns for the "Bento" look */
+        .bento-card:nth-child(1), .bento-card:nth-child(6) {
+            grid-column: span 2;
+            background: linear-gradient(135deg, var(--navy), var(--bg-dark));
+            color: var(--white);
+        }
+
+        .bento-card:nth-child(1) h3, .bento-card:nth-child(6) h3 {
+            color: var(--white);
+        }
+
+        .bento-card:nth-child(1) p, .bento-card:nth-child(6) p {
+            color: #A0AEC0;
+        }
+
+        .bento-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+        }
+
+        .bento-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            z-index: 1;
+        }
+
+        .bento-icon {
+            width: 50px;
+            height: 50px;
             margin-bottom: 1.5rem;
-            transition: all 0.4s ease;
+            color: var(--gold);
         }
 
-        .service-card:hover .icon-wrapper {
-            background: var(--gold);
-            transform: scale(1.05);
-        }
-
-        .icon-wrapper svg {
-            width: 28px;
-            height: 28px;
+        .bento-icon svg {
+            width: 100%;
+            height: 100%;
             fill: none;
-            stroke: var(--gold);
+            stroke: currentColor;
             stroke-width: 1.5;
             stroke-linecap: round;
             stroke-linejoin: round;
-            transition: stroke 0.4s ease;
         }
 
-        .service-card:hover .icon-wrapper svg {
-            stroke: var(--navy-deep);
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-        }
-
-        .service-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            font-weight: 300;
-        }
-
-        /* --- Elegant Platforms Section --- */
+        /* --- Infinite Marquee Platforms --- */
         .platforms {
-            padding: 6rem 8%;
-            background-color: var(--cream);
-            text-align: center;
-        }
-
-        .platform-grid {
+            padding: 5rem 0;
+            background: var(--bg-dark);
+            overflow: hidden;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 3rem;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .platform-badge {
-            background: var(--white);
-            padding: 1.2rem 2.5rem;
-            border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
-            border: 1px solid rgba(0,0,0,0.05);
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--navy);
-            transition: all 0.3s ease;
+        .platforms .section-title {
+            color: var(--white);
+            margin-bottom: 3rem;
+        }
+
+        .marquee-container {
+            width: 100%;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .marquee {
+            display: flex;
+            gap: 4rem;
+            animation: scroll 25s linear infinite;
+            white-space: nowrap;
+            align-items: center;
+        }
+
+        .marquee:hover {
+            animation-play-state: paused;
+        }
+
+        .platform-item {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.4);
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: color 0.3s;
         }
 
-        .platform-badge:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.2);
-            border-color: var(--gold);
+        .platform-item:hover {
             color: var(--gold);
         }
 
-        .platform-badge span {
+        .platform-item span {
+            font-size: 2.5rem;
             color: var(--gold);
-            font-size: 1.5rem;
-            line-height: 1;
         }
 
-        /* --- Investment Model Section --- */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 2rem)); }
+        }
+
+        /* --- Asymmetrical Investment Section --- */
         .investment {
-            padding: 7rem 8%;
-            background: var(--navy-deep);
-            color: var(--white);
+            padding: 8rem 5%;
+            background: var(--bg-light);
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
-            justify-content: space-between;
-            gap: 4rem;
+            gap: 5rem;
         }
 
-        .investment-text {
+        .investment-content {
             flex: 1;
-            min-width: 320px;
         }
 
-        .investment-text h2 {
-            color: var(--gold);
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .investment-text p {
-            font-size: 1.1rem;
+        .investment-content h2 {
+            font-size: 3.5rem;
             margin-bottom: 2rem;
-            color: #B0C4DE;
-            font-weight: 300;
         }
 
-        .investment-stats {
+        .investment-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
             flex: 1;
-            min-width: 320px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
+            position: relative;
         }
 
-        .stat-box {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(197, 160, 89, 0.2);
-            padding: 2rem;
-            border-radius: 8px;
+        /* Offset the stats grid to make it unique */
+        .stats-grid::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
             text-align: center;
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            z-index: 1;
+            transition: transform 0.3s ease;
         }
 
-        .stat-box:hover {
-            background: rgba(255,255,255,0.05);
-            border-color: var(--gold);
+        .stat-card:hover {
+            transform: translateY(-10px);
         }
 
-        .stat-box h3 {
+        .stat-card h3 {
+            font-size: 3rem;
             color: var(--gold);
-            font-size: 2.5rem;
             margin-bottom: 0.5rem;
-            font-family: 'Playfair Display', serif;
         }
 
-        .stat-box p {
-            color: var(--white);
-            font-size: 0.85rem;
+        .stat-card p {
+            font-size: 0.9rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 500;
+            color: var(--navy);
         }
 
-        /* --- Contact Section --- */
+        /* --- Modern Contact Section --- */
         .contact {
-            padding: 7rem 8%;
+            padding: 8rem 5%;
             background: var(--white);
             display: flex;
-            flex-wrap: wrap;
             gap: 5rem;
         }
 
         .contact-info {
             flex: 1;
-            min-width: 300px;
         }
 
         .contact-info h2 {
             font-size: 3rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
+        .contact-info p {
             color: var(--text-muted);
+            margin-bottom: 3rem;
         }
 
-        .info-item span {
-            margin-right: 1.5rem;
-            font-size: 1.5rem;
-            color: var(--gold);
-            background: var(--cream);
-            width: 50px;
-            height: 50px;
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 50%;
+            gap: 1rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--navy);
         }
 
-        .contact-form {
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .contact-form-wrapper {
             flex: 1;
-            min-width: 300px;
-            background: var(--cream);
+            background: var(--bg-light);
             padding: 4rem;
-            border-radius: 8px;
-            border-top: 4px solid var(--gold);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.05);
+            border-radius: 30px;
+            position: relative;
+        }
+
+        /* Floating element on form */
+        .contact-form-wrapper::before {
+            content: 'Let\'s Talk';
+            position: absolute;
+            top: -20px;
+            right: 40px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transform: rotate(3deg);
+            box-shadow: 0 5px 15px var(--gold-glow);
         }
 
         .form-group {
@@ -429,68 +483,137 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--navy);
             font-size: 0.9rem;
+            color: var(--navy);
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 1rem;
-            border: 1px solid #E0E0E0;
+            padding: 1rem 1.2rem;
+            border: 2px solid transparent;
             background: var(--white);
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
+            border-radius: 12px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
             transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
 
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: var(--navy);
-            box-shadow: 0 0 0 3px rgba(10, 34, 64, 0.1);
+            border-color: var(--gold);
+            box-shadow: 0 4px 20px var(--gold-glow);
+        }
+
+        .contact-form-wrapper .btn-primary {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            border-radius: 12px;
+            margin-top: 1rem;
         }
 
         /* --- Footer --- */
         footer {
-            background: var(--navy-deep);
+            background: var(--bg-dark);
             color: var(--white);
             text-align: center;
             padding: 3rem 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         footer p {
-            color: #8892B0;
+            color: #718096;
             font-size: 0.9rem;
-            font-weight: 300;
         }
 
-        /* --- Responsive Design --- */
-        @media (max-width: 900px) {
-            nav ul { display: none; }
-            nav { padding: 1rem 5%; justify-content: center; }
+        footer .gold-text {
+            color: var(--gold);
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* --- Animation Classes (Triggered by JS) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .bento-card:nth-child(1), .bento-card:nth-child(6) {
+                grid-column: span 2;
+            }
+            .investment, .contact {
+                flex-direction: column;
+                gap: 4rem;
+            }
+            .stats-grid::before {
+                display: none; /* Hide offset border on mobile */
+            }
+            .hero h1 { font-size: 3.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                justify-content: center;
+                padding: 1rem;
+            }
+            .nav-links {
+                display: none; /* Hide nav links on mobile for clean look */
+            }
+            .hero {
+                min-height: 80vh;
+                padding-top: 4rem;
+                text-align: center;
+            }
             .hero h1 { font-size: 2.8rem; }
+            .hero p { margin: 0 auto 2rem auto; }
+            
             .section-title { font-size: 2.2rem; }
-            .investment { flex-direction: column; text-align: center; }
-            .contact { flex-direction: column; padding: 4rem 5%; }
-            .contact-form { padding: 2rem; }
-            .info-item { justify-content: center; text-align: center; flex-direction: column; gap: 10px; }
-            .info-item span { margin-right: 0; }
+            
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .bento-card:nth-child(1), .bento-card:nth-child(6) {
+                grid-column: span 1;
+            }
+            
+            .contact-form-wrapper {
+                padding: 2.5rem 1.5rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+                width: 100%;
+            }
+            .investment-content h2, .contact-info h2 {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Sticky Navigation -->
     <nav>
         <img src="Website Logo.jpeg" alt="Ventora Logo">
-        <ul>
+        <ul class="nav-links">
             <li><a href="#services">Services</a></li>
             <li><a href="#investment">Investment</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -498,140 +621,157 @@
         <a href="#contact" class="btn-primary">Get Started</a>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Immersive Hero -->
     <header class="hero">
-        <h1>Grow. Sell. Scale Together.</h1>
-        <p>Ventora E-Commerce Management is your premier partner for dominating online marketplaces. From Amazon and eBay to Shopify and TikTok Shop, we manage your accounts to maximize your revenue.</p>
-        <a href="#contact" class="btn-primary">Schedule a Consultation</a>
+        <div class="hero-content reveal">
+            <h1>Dominate E-Commerce. <br> <span>We Invest In You.</span></h1>
+            <p>Ventora E-Commerce Management is your premier partner for scaling online marketplaces. From Amazon to TikTok Shop, we source, list, market, and even fund your inventory to guarantee mutual growth.</p>
+            <a href="#contact" class="btn-primary" style="background: var(--gold); color: var(--bg-dark); padding: 1rem 2.5rem; font-size: 1rem;">Schedule a Consultation</a>
+        </div>
     </header>
 
-    <!-- Elegant Services Section -->
+    <!-- Bento Box Services -->
     <section id="services" class="services">
-        <div class="section-header">
-            <h2 class="section-title">Our Core Services</h2>
-            <p class="section-subtitle">Comprehensive E-Commerce Management tailored for your success.</p>
+        <div class="section-header reveal">
+            <h2 class="section-title">Our Expertise</h2>
+            <p class="section-subtitle">A comprehensive suite of services designed to scale your revenue.</p>
         </div>
         
-        <div class="grid-container">
-            <!-- Service 1 -->
-            <div class="service-card">
-                <div class="icon-wrapper">
+        <div class="bento-grid">
+            <!-- Large Card -->
+            <div class="bento-card reveal">
+                <div class="bento-icon">
                     <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                 </div>
-                <h3>Product Sourcing</h3>
-                <p>We find high-demand, profitable products for you. Let us handle the research and supplier negotiations while you focus on growing your business.</p>
+                <h3>Strategic Product Sourcing</h3>
+                <p>We don't just guess; we analyze data to find high-demand, profitable products for you. Let us handle the heavy lifting of supplier negotiations and logistics while you focus on growing your empire.</p>
             </div>
-            <!-- Service 2 -->
-            <div class="service-card">
-                <div class="icon-wrapper">
+            
+            <!-- Standard Card -->
+            <div class="bento-card reveal">
+                <div class="bento-icon">
                     <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                 </div>
                 <h3>Listing Management</h3>
-                <p>Optimized titles, descriptions, and images that rank higher in search results. We meticulously manage your inventory across all platforms.</p>
+                <p>SEO-optimized titles, descriptions, and imagery that rank higher and convert better across all platforms.</p>
             </div>
-            <!-- Service 3 -->
-            <div class="service-card">
-                <div class="icon-wrapper">
+
+            <!-- Standard Card -->
+            <div class="bento-card reveal">
+                <div class="bento-icon">
                     <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 </div>
-                <h3>Marketing & Promotion</h3>
-                <p>Drive traffic and convert sales with our targeted PPC campaigns, social media marketing, and strategic promotional strategies.</p>
+                <h3>Marketing & PPC</h3>
+                <p>Drive targeted traffic and convert sales with our expert PPC campaigns and promotional strategies.</p>
             </div>
-            <!-- Service 4 -->
-            <div class="service-card">
-                <div class="icon-wrapper">
+
+            <!-- Standard Card -->
+            <div class="bento-card reveal">
+                <div class="bento-icon">
                     <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                 </div>
                 <h3>Account Growth</h3>
-                <p>We treat your accounts like our own. Through data analytics and proactive management, we ensure your store scales month over month.</p>
+                <p>Data analytics and proactive management to ensure your store scales month over month.</p>
             </div>
-            <!-- Service 5 -->
-            <div class="service-card">
-                <div class="icon-wrapper">
+
+            <!-- Standard Card -->
+            <div class="bento-card reveal">
+                <div class="bento-icon">
                     <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                 </div>
-                <h3>Consulting & Strategy</h3>
-                <p>Expert advice on navigating the complexities of global e-commerce. We help you avoid pitfalls and seize market opportunities.</p>
+                <h3>Consulting</h3>
+                <p>Expert advice on navigating the complexities of global e-commerce to avoid pitfalls and seize opportunities.</p>
             </div>
-            <!-- Service 6 -->
-            <div class="service-card">
-                <div class="icon-wrapper">
+
+            <!-- Large Card -->
+            <div class="bento-card reveal">
+                <div class="bento-icon">
                     <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                 </div>
                 <h3>Investment & Profit Share</h3>
-                <p>Our unique model: We can invest our own capital to fund your inventory. In return, we take a commission based on sales and profits.</p>
+                <p>Our signature partnership model. We invest our own capital to fund your inventory and handle operations. In return, we take a commission based on the sales and profits we generate together. We only win when you win.</p>
             </div>
         </div>
     </section>
 
-    <!-- Elegant Platforms Section -->
+    <!-- Infinite Marquee Platforms -->
     <section class="platforms">
-        <div class="section-header">
-            <h2 class="section-title">Platforms We Master</h2>
-            <p class="section-subtitle">Manage all your sales channels from one expert partner.</p>
+        <h2 class="section-title reveal">Platforms We Master</h2>
+        <div class="marquee-container">
+            <div class="marquee">
+                <!-- Items -->
+                <div class="platform-item"><span>e</span> eBay</div>
+                <div class="platform-item"><span>a</span> Amazon</div>
+                <div class="platform-item"><span>W</span> Walmart</div>
+                <div class="platform-item"><span>E</span> Etsy</div>
+                <div class="platform-item"><span>S</span> Shopify</div>
+                <div class="platform-item"><span>t</span> TikTok Shop</div>
+                <div class="platform-item"><span>f</span> Facebook Market</div>
+                
+                <!-- Duplicated for seamless scrolling -->
+                <div class="platform-item"><span>e</span> eBay</div>
+                <div class="platform-item"><span>a</span> Amazon</div>
+                <div class="platform-item"><span>W</span> Walmart</div>
+                <div class="platform-item"><span>E</span> Etsy</div>
+                <div class="platform-item"><span>S</span> Shopify</div>
+                <div class="platform-item"><span>t</span> TikTok Shop</div>
+                <div class="platform-item"><span>f</span> Facebook Market</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Asymmetrical Investment Section -->
+    <section id="investment" class="investment">
+        <div class="investment-content reveal">
+            <h2>We Don't Just Manage. <br> <span style="color: var(--gold);">We Invest.</span></h2>
+            <p>Traditional agencies charge retainers and vanish. Ventora is different. We offer a unique partnership model where we can fund your inventory costs, manage the operations, and scale the business.</p>
+            <p>Our compensation is tied directly to the profitability of your business. When you make money, we make money. It's that simple.</p>
+            <a href="#contact" class="btn-primary" style="margin-top: 1rem;">Discuss a Partnership</a>
         </div>
         
-        <div class="platform-grid">
-            <div class="platform-badge"><span>e</span> eBay</div>
-            <div class="platform-badge"><span>a</span> Amazon</div>
-            <div class="platform-badge"><span>W</span> Walmart</div>
-            <div class="platform-badge"><span>E</span> Etsy</div>
-            <div class="platform-badge"><span>S</span> Shopify</div>
-            <div class="platform-badge"><span>t</span> TikTok Shop</div>
-            <div class="platform-badge"><span>f</span> Facebook Market</div>
-        </div>
-    </section>
-
-    <!-- Investment Model Section -->
-    <section id="investment" class="investment">
-        <div class="investment-text">
-            <h2>We Invest In You.</h2>
-            <p>Unlike traditional agencies, Ventora puts our money where our mouth is. We offer a unique partnership model where we can fund your inventory costs and handle all the operational heavy lifting.</p>
-            <p>We only succeed when you succeed. Our compensation is tied directly to the growth and profitability of your e-commerce business.</p>
-            <a href="#contact" class="btn-primary" style="background:var(--gold); color:var(--navy-deep); margin-top: 1rem;">Discuss Partnership</a>
-        </div>
-        <div class="investment-stats">
-            <div class="stat-box">
+        <div class="stats-grid reveal">
+            <div class="stat-card">
                 <h3>0%</h3>
-                <p>Upfront Cost for Clients</p>
+                <p>Upfront Cost</p>
             </div>
-            <div class="stat-box">
+            <div class="stat-card">
                 <h3>100%</h3>
-                <p>Dedication to Growth</p>
+                <p>Dedication</p>
             </div>
-            <div class="stat-box">
+            <div class="stat-card">
                 <h3>7+</h3>
-                <p>Major Platforms Managed</p>
+                <p>Platforms</p>
             </div>
-            <div class="stat-box">
+            <div class="stat-card">
                 <h3>24/7</h3>
-                <p>Account Monitoring</p>
+                <p>Monitoring</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Modern Contact Section -->
     <section id="contact" class="contact">
-        <div class="contact-info">
+        <div class="contact-info reveal">
             <h2>Let's Build Your Empire.</h2>
-            <p style="margin-bottom: 2.5rem; color: #666; font-size: 1.1rem; font-weight: 300;">Ready to scale your e-commerce business? Reach out to us today. We are based in New London, Connecticut, managing businesses globally.</p>
+            <p>Ready to scale your e-commerce business? Reach out to us today. We are based in New London, Connecticut, but manage businesses globally.</p>
             
-            <div class="info-item">
-                <span>📍</span>
-                <p>New London, Connecticut, USA</p>
-            </div>
-            <div class="info-item">
-                <span>📞</span>
-                <p><a href="tel:8604607078" style="color: var(--navy); text-decoration: none; font-weight: 600;">860-460-7078</a></p>
-            </div>
-            <div class="info-item">
-                <span>📧</span>
-                <p>info@ventoramanagement.com</p>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>New London, Connecticut, USA</span>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <a href="tel:8604607078" style="text-decoration: none; color: inherit;">860-460-7078</a>
+                </div>
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span>info@ventoramanagement.com</span>
+                </div>
             </div>
         </div>
 
-        <div class="contact-form">
-            <h3 class="serif" style="margin-bottom: 2rem; font-size: 2rem;">Send Us a Message</h3>
+        <div class="contact-form-wrapper reveal">
             <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <div class="form-group">
                     <label for="name">Full Name</label>
@@ -656,9 +796,9 @@
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your current e-commerce setup..." required></textarea>
+                    <textarea id="message" name="message" rows="3" placeholder="Tell us about your goals..." required></textarea>
                 </div>
-                <button type="submit" class="btn-primary" style="width: 100%; font-size: 1rem; padding: 1rem;">Send Message</button>
+                <button type="submit" class="btn-primary">Send Message</button>
             </form>
         </div>
     </section>
@@ -666,8 +806,29 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2023 Ventora E-Commerce Management. All Rights Reserved.</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8rem; letter-spacing: 2px; color: var(--gold);">GROW • SELL • SCALE TOGETHER</p>
+        <p class="gold-text">GROW • SELL • SCALE TOGETHER</p>
     </footer>
 
+    <!-- JavaScript for Scroll Animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 150;
+
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Trigger once on load
+        });
+    </script>
 </body>
 </html>
